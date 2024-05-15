@@ -20,7 +20,7 @@ function handleFormSubmit(event) {
     const childElm = document.createElement("li");
     childElm.textContent = `Username: ${userDetails.username}, Email: ${userDetails.email}, Phone: ${userDetails.phone}`;
   
-    const deleteButton = document.createElement('input');
+    const deleteButton = document.createElement('button');
     deleteButton.type = "button";
     deleteButton.value = "Delete";
     deleteButton.onclick = () => {
@@ -28,15 +28,15 @@ function handleFormSubmit(event) {
       parentElm.removeChild(childElm);
     };
 
-    const editButton = document.createElement('input');
+    const editButton = document.createElement('button');
     editButton.type = "button";
     editButton.value = "Edit";
     editButton.onclick = () => {
       localStorage.removeItem(userDetails.email);
       parentElm.removeChild(childElm);
-      document.getElementById('usernameInputTag').value = userDetails.name
-      document.getElementById('emailInputTag').value = userDetails.email
-      document.getElementById('phoneNumberInputTag').value = userDetails.phonenumber
+      document.getElementById('username').value = userDetails.username;
+      document.getElementById('email').value = userDetails.email;
+      document.getElementById('phone').value = userDetails.phone;
     };
   
     childElm.appendChild(deleteButton);
