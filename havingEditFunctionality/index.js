@@ -27,8 +27,20 @@ function handleFormSubmit(event) {
       localStorage.removeItem(userDetails.email);
       parentElm.removeChild(childElm);
     };
+
+    const editButton = document.createElement('input');
+    editButton.type = "button";
+    editButton.value = "Edit";
+    editButton.onclick = () => {
+      localStorage.removeItem(userDetails.email);
+      parentElm.removeChild(childElm);
+      document.getElementById('usernameInputTag').value = userDetails.name
+      document.getElementById('emailInputTag').value = userDetails.email
+      document.getElementById('phoneNumberInputTag').value = userDetails.phonenumber
+    };
   
     childElm.appendChild(deleteButton);
+     childElm.appendChild(editButton);
     parentElm.appendChild(childElm);
   }
-  //module.exports = handleFormSubmit;
+  module.exports = handleFormSubmit;
